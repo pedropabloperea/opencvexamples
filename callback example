@@ -1,0 +1,31 @@
+void my_mouse_callback(
+                       int event, int x, int y, int flags, void* param ){
+    IplImage* image = (IplImage*) param;
+    switch( event ) {
+            case CV_EVENT_MOUSEMOVE: {
+                cvDestroyWindow( "hola" );
+            }
+    }
+    
+    }
+int main( int argc, char** argv ){
+    IplImage *img=cvLoadImage(
+                          "/Users/pedrete_142/Documents/proyectoprimeroopencv/multimedia/images/botin.jpg",
+                          CV_LOAD_IMAGE_COLOR
+                          );
+    cvNamedWindow("hola",CV_WINDOW_AUTOSIZE);
+    
+    cvResizeWindow( "hola", 300, 300);
+     cvShowImage( "hola", img
+                     );
+    cvMoveWindow( "hola", 500
+                 , 500);
+    cvSetMouseCallback(
+                       "hola", my_mouse_callback, img
+                       );
+   /* cvSetMouseCallback("hola",CV_EVENT_MOUSEMOVE,NULL);*/
+    
+    
+    waitKey(0);
+    return 0;
+}
