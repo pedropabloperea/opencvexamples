@@ -1,3 +1,8 @@
+#include "opencv2/core/core.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include <stdio.h>
+using namespace cv;
+
 void my_mouse_callback(
                        int event, int x, int y, int flags, void* param ){
     IplImage* image = (IplImage*) param;
